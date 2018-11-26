@@ -28,7 +28,9 @@ nav li a {
     color: white;
 }
 
-
+td:nth-child(1){
+    width: 40%;
+}
 
 .dropdown-menu{
     margin-top: 8px;    
@@ -56,8 +58,12 @@ button {
     padding: 8px;
 }
 
-#more {display: none;
+#more {
+    display: none;
 }
+#more_1 {
+    display: none;
+} 
 
 .email {
     width: 45px;
@@ -66,8 +72,6 @@ button {
     right: 30px;
     margin-top: 190px;
 }
-
-
 
 td {
     background-color: #e5e5e5;

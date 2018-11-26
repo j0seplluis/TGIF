@@ -16,7 +16,6 @@ var statistics = {
 //         JSON
 /*---------------------------*/
 
-
 var data;
 var member;
 
@@ -43,13 +42,12 @@ var member;
             least_V_W_Party_Att();
             tableLeast_Att("least-eng-att");
             most_W_Party_Att();
-            tableMost_Att("most-eng-att");
+            tableLeast_Att("most-eng-att");
 
 
         }).catch(function (error) {
             console.log("Requestes failed: " + error.message);
         });
-
     }
 
 
@@ -76,8 +74,7 @@ if (document.title == "House Attendance") {
         least_V_W_Party_Att();
         tableLeast_Att("least-eng-att");
         most_W_Party_Att();
-        tableMost_Att("most-eng-att");
-
+        tableLeast_Att("most-eng-att");
 
     }).catch(function (error) {
         console.log("Requestes failed: " + error.message);
@@ -86,9 +83,7 @@ if (document.title == "House Attendance") {
 }
 
 
-
 /*---GLOBAL VARIABLES---*/
-
 
 
 var dem = [];
@@ -98,62 +93,7 @@ var lowPct = [];
 var highPct = [];
 
 
-/*---FUNCTIONS--SENATE--ATTENDANCE--------*/
-
-function allMembers() {
-    for (d = 0; d < member.length; d++) {
-        if (member[d].party == "D") {
-            dem.push(member[d]);
-        }
-    }
-
-    for (r = 0; r < member.length; r++) {
-        if (member[r].party == "R") {
-            rep.push(member[r]);
-        }
-    }
-
-    for (i = 0; i < member.length; i++) {
-        if (member[i].party == "I") {
-            ind.push(member[i]);
-        }
-    }
-    statistics.NumberOfDemocrates = dem.length;
-    statistics.NumberOfRepublicans = rep.length;
-    statistics.NumberOfIndependents = ind.length;
-
-    /*----AVERAGE----*/
-
-    var votesDem = 0;
-    var votesRep = 0;
-    var votesInd = 0;
-    var votesTotal = 0;
-
-    for (d = 0; d < dem.length; d++) {
-        votesDem = votesDem + dem[d].votes_with_party_pct;
-    }
-    statistics.democratVotes = votesDem / dem.length;
-
-
-    for (r = 0; r < rep.length; r++) {
-        votesRep = votesRep + rep[r].votes_with_party_pct;
-    }
-    statistics.republicanVotes = votesRep / rep.length;
-
-    for (i = 0; i < ind.length; i++) {
-        votesInd = votesInd + ind[i].votes_with_party_pct;
-    }
-
-    for (i = 0; i < member.length; i++) {
-        votesTotal = votesTotal + member[i].votes_with_party_pct;
-    }
-    statistics.independentVotes = votesInd / ind.length || 0;
-
-    statistics.totalVotes_avg = votesTotal / member.length;
-
-}
-
-/*--------------------------------------*/
+/*------------GLANCE---------------*/
 
 function glance() {
 
@@ -175,6 +115,60 @@ function glance() {
     cell_8.innerHTML = statistics.totalVotes_avg.toFixed(2);
 }
 
+/*--------FUNCTIONS--SENATE--ATTENDANCE--------*/
+
+function allMembers() {
+    for (d = 0; d < member.length; d++) {
+        if (member[d].party == "D") {
+            dem.push(member[d]);
+        }
+    }
+
+    for (r = 0; r < member.length; r++) {
+        if (member[r].party == "R") {
+            rep.push(member[r]);
+        }
+    }
+
+    for (i = 0; i < member.length; i++) {
+        if (member[i].party == "I") {
+            ind.push(member[i]);
+        }
+    }
+
+    statistics.NumberOfDemocrates = dem.length;
+    statistics.NumberOfRepublicans = rep.length;
+    statistics.NumberOfIndependents = ind.length;
+
+    /*-----------------------AVERAGE------------------------*/
+
+    var votesDem = 0;
+    var votesRep = 0;
+    var votesInd = 0;
+    var votesTotal = 0;
+
+    for (d = 0; d < dem.length; d++) {
+        votesDem = votesDem + dem[d].votes_with_party_pct;
+    }
+    statistics.democratVotes = votesDem / dem.length;
+
+    for (r = 0; r < rep.length; r++) {
+        votesRep = votesRep + rep[r].votes_with_party_pct;
+    }
+    statistics.republicanVotes = votesRep / rep.length;
+
+    for (i = 0; i < ind.length; i++) {
+        votesInd = votesInd + ind[i].votes_with_party_pct;
+    }
+
+    for (i = 0; i < member.length; i++) {
+        votesTotal = votesTotal + member[i].votes_with_party_pct;
+    }
+    statistics.independentVotes = votesInd / ind.length || 0;
+
+    statistics.totalVotes_avg = votesTotal / member.length;
+}
+
 /*--------------------------------------*/
 
 function least_V_W_Party_Att() {
@@ -188,7 +182,6 @@ function least_V_W_Party_Att() {
     var pct = newMember.length * 0.1;
     var pctRound = Math.round(pct);
 
-
     for (var i = 0; i < newMember.length; i++) {
         if (i < pctRound) {
             lowPct.push(newMember[i]);
@@ -199,24 +192,6 @@ function least_V_W_Party_Att() {
         }
     }
     statistics.numMissedVotesBottom = lowPct;
-}
-
-/*--------------------------------------*/
-
-function tableLeast_Att(id) {
-
-    var tableLeastSenateAtt = document.getElementById(id);
-    tableLeastSenateAtt.innerHTML = "";
-
-    var everyMember = statistics.numMissedVotesBottom;
-
-    for (var i = 0; i < everyMember.length; i++) {
-        var row = document.createElement("tr");
-        row.insertCell().innerHTML = everyMember[i].first_name;
-        row.insertCell().innerHTML = everyMember[i].missed_votes;
-        row.insertCell().innerHTML = everyMember[i].missed_votes_pct;
-        tableLeastSenateAtt.append(row);
-    }
 }
 
 /*--------------------------------------*/
@@ -246,18 +221,34 @@ function most_W_Party_Att() {
 
 /*--------------------------------------*/
 
-function tableMost_Att(id) {
+function tableLeast_Att(id) {
 
-    var everyMember = statistics.numMissedVotesTop;
+    var tableLeastSenateAtt = document.getElementById(id);
+    tableLeastSenateAtt.innerHTML = "";
 
-    var tableMostVote = document.getElementById(id);
-    tableMostVote.innerHTML = "";
+    
+    if(id=="most-eng-att") {
+        var everyMember = Array.from(statistics.numMissedVotesTop);
+    } else {
+        var everyMember = Array.from(statistics.numMissedVotesBottom);
+    }
 
     for (var i = 0; i < everyMember.length; i++) {
+
+        var url = everyMember[i].url;
+
+        var a = document.createElement("a");
+        a.setAttribute("href", url);
+        a.setAttribute("target", "_blank");
+        var fName = everyMember[i].first_name;
+        var lName = everyMember[i].last_name;
+        var fullName = (fName + " " + lName);
+        a.append(fullName);
+
         var row = document.createElement("tr");
-        row.insertCell().innerHTML = everyMember[i].first_name;
+        row.insertCell().append(a); 
         row.insertCell().innerHTML = everyMember[i].missed_votes;
         row.insertCell().innerHTML = everyMember[i].missed_votes_pct;
-        tableMostVote.append(row);
+        tableLeastSenateAtt.append(row);
     }
 }

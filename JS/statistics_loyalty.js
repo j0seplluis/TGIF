@@ -38,8 +38,8 @@ if (document.title == "Senate Loyalty") {
 
         allMembers();
         glance();
-        tableLeast_Loyal("least_loyal", least_V_Party(), "ASC");
-        tableLeast_Loyal("most_loyal", least_V_Party(), "DSC");
+        table_Loyal("least_loyal", least_V_Party(), "ASC");
+        table_Loyal("most_loyal", least_V_Party(), "DSC");
 
 
 
@@ -70,8 +70,8 @@ if (document.title == "House Loyalty") {
 
         allMembers();
         glance();
-        tableLeast_Loyal("least_loyal", least_V_Party(), "ASC");
-        tableLeast_Loyal("most_loyal", least_V_Party(), "DSC");
+        table_Loyal("least_loyal", least_V_Party(), "ASC");
+        table_Loyal("most_loyal", least_V_Party(), "DSC");
 
 
 
@@ -84,14 +84,32 @@ if (document.title == "House Loyalty") {
 /*---GLOBAL VARIABLES---*/
 
 
-
-
 var dem = [];
 var rep = [];
 var ind = [];
 var lowPct = [];
 var highPct = [];
 
+
+function glance() {
+
+    var cell_1 = document.getElementById("rep_guys");
+    cell_1.innerHTML = statistics.NumberOfRepublicans;
+    var cell_2 = document.getElementById("rep_votes");
+    cell_2.innerHTML = statistics.republicanVotes.toFixed(2);
+    var cell_3 = document.getElementById("dem_guys");
+    cell_3.innerHTML = statistics.NumberOfDemocrates;
+    var cell_4 = document.getElementById("dem_votes");
+    cell_4.innerHTML = statistics.democratVotes.toFixed(2);
+    var cell_5 = document.getElementById("ind_guys");
+    cell_5.innerHTML = statistics.NumberOfIndependents;
+    var cell_6 = document.getElementById("ind_votes");
+    cell_6.innerHTML = statistics.independentVotes.toFixed(2);
+    var cell_7 = document.getElementById("total");
+    cell_7.innerHTML = member.length;
+    var cell_8 = document.getElementById("total_votes");
+    cell_8.innerHTML = statistics.totalVotes_avg.toFixed(2);
+}
 
 /*---FUNCTIONS--LOYALTY--------*/
 
@@ -113,6 +131,7 @@ function allMembers() {
             ind.push(member[i]);
         }
     }
+
     statistics.NumberOfDemocrates = dem.length;
     statistics.NumberOfRepublicans = rep.length;
     statistics.NumberOfIndependents = ind.length;
@@ -144,35 +163,8 @@ function allMembers() {
     }
     statistics.independentVotes = (votesInd / ind.length) || 0;
 
-
     statistics.totalVotes_avg = votesTotal / member.length;
 }
-
-
-
-
-function glance() {
-
-    var cell_1 = document.getElementById("rep_guys");
-    cell_1.innerHTML = statistics.NumberOfRepublicans;
-    var cell_2 = document.getElementById("rep_votes");
-    cell_2.innerHTML = statistics.republicanVotes.toFixed(2);
-    var cell_3 = document.getElementById("dem_guys");
-    cell_3.innerHTML = statistics.NumberOfDemocrates;
-    var cell_4 = document.getElementById("dem_votes");
-    cell_4.innerHTML = statistics.democratVotes.toFixed(2);
-    var cell_5 = document.getElementById("ind_guys");
-    cell_5.innerHTML = statistics.NumberOfIndependents;
-    var cell_6 = document.getElementById("ind_votes");
-    cell_6.innerHTML = statistics.independentVotes.toFixed(2);
-    var cell_7 = document.getElementById("total");
-    cell_7.innerHTML = member.length;
-    var cell_8 = document.getElementById("total_votes");
-    cell_8.innerHTML = statistics.totalVotes_avg.toFixed(2);
-
-
-}
-
 
 
 function least_V_Party() {
@@ -183,11 +175,10 @@ function least_V_Party() {
         return a.votes_with_party_pct - b.votes_with_party_pct;
     });
     return newMember;
-
 }
 
 
-function tableLeast_Loyal(id, orderedArray, order) {
+function table_Loyal(id, orderedArray, order) {
 
     var tableLeastSenateAtt = document.getElementById(id);
     tableLeastSenateAtt.innerHTML = "";
@@ -211,8 +202,19 @@ function tableLeast_Loyal(id, orderedArray, order) {
 
 
     for (var i = 0; i < lowPct.length; i++) {
+       
+        var url = lowPct[i].url;
+
+ var a = document.createElement("a");
+        a.setAttribute("href", url);
+        a.setAttribute("target", "_blank");
+        var fName = lowPct[i].first_name;
+        var lName = lowPct[i].last_name;
+        var fullName = (fName + " " + lName);
+        a.append(fullName);
+
         var row = document.createElement("tr");
-        row.insertCell().innerHTML = lowPct[i].first_name;
+        row.insertCell().append(a); 
         row.insertCell().innerHTML = lowPct[i].total_votes;
         row.insertCell().innerHTML = lowPct[i].votes_with_party_pct;
         tableLeastSenateAtt.append(row);
