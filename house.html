@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>House</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./CSS/main.css">
+</head>
+
+<body>
+
+    <header>
+        <a href="mailto:info@tgif.net">
+            <img class="email" src="./img/email.ico" alt="email"></a>
+    </header>
+
+    <nav class="navbar navbar-expand-sm">
+        <div class="container">
+            <!-- Brand -->
+            <div class="row">
+                <div class="col-12">
+                    <a class="navbar-brand TGIF" href="#">Transparent Goverment In Fact</a>
+                </div>
+
+                <!-- Links -->
+                <div class="col">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">House</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Congres 113
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="senate.html">Senate</a>
+                                <a class="dropdown-item" href="house.html">House</a>
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Attendance</a>
+
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="senate_attendance.html">Senate</a>
+                                <a class="dropdown-item" href="house_attendance.html">House</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Loyalty</a>
+
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="senate_loyalty.html">Senate</a>
+                                <a class="dropdown-item" href="house_loyalty.html">House</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!--Table container-->
+
+    <div class="container margin_T_25">
+        <h2>Congressmen</h2>
+        <p>The major power of the House is to pass federal legislation that affects the entire country, although its bills must also be passed by the Senate and further agreed to by the U.S. President before becoming law (unless both the House and Senate re-pass the legislation with a two-thirds majority in each chamber). The House has some exclusive powers: the power to initiate revenue bills, to impeach officials (impeached officials are subsequently tried in the Senate), and to elect the U.S. President in case there is no majority in the Electoral College.</p>
+        <p>Each U.S. state is represented in the House in proportion to its population as measured in the census, but every state is entitled to at least one representative. </p>
+
+
+        <!-- checkbox -->
+        <div class="row filters">
+            <div class="check col">
+                <label for="Democrates">Democrates</label>
+                <input type="checkbox" id="myCheck_1" onclick="tableCongress()">
+                <label for="Republicans">Republicans</label>
+                <input type="checkbox" id="myCheck_2" onclick="tableCongress()">
+                <label for="Independent">Independent</label>
+                <input type="checkbox" id="myCheck_3" onclick="tableCongress()">
+            </div>
+
+
+         <!-- dropdown -->
+
+            <div class="stateMenuHouse col">
+                <label for="Select Your State">Select Your State</label>
+                <select name="SelectYourState" id="selectState">
+                    <option value="all" selected>All States</option>
+                    <!--  <option>  -->
+                </select>
+            </div>
+        </div>
+
+        <!------TABLE-------->
+
+        <table class="table table-hover">
+           
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Party</th>
+                    <th>State</th>
+                    <th>Years in Office</th>
+                    <th>Votes</th>
+                </tr>
+            </thead>
+
+            <tbody id="tbody">
+            </tbody>
+        </table>
+   
+    </div>
+
+    <table id="house-data"></table>
+
+    <script src="./JS/data_house.js"></script>
+    <!--    <script src="./JS/house.js"></script>-->
+    <script src="./JS/appetite_for_destruction.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <footer>&copy; 2018 | All rights reserved</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>House Attendance</title>
+    <link rel="stylesheet" href="./CSS/main.css">
+
+</head>
+
+<body>
+
+    <header>
+        <a href="mailto:info@tgif.net">
+            <img class="email" src="./img/email.ico" alt="email"></a>
+    </header>
+
+    <nav class="navbar navbar-expand-sm">
+        <div class="container">
+            <!-- Brand -->
+            <div class="row">
+                <div class="col-12">
+                    <a class="navbar-brand TGIF" href="#">Transparent Goverment In Fact</a>
+                </div>
+                <!-- Links -->
+                <div class="col">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Congres 113
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="senate.html">Senate</a>
+                                <a class="dropdown-item" href="house.html">House</a>
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Attendance</a>
+
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="senate_attendance.html">Senate</a>
+                                <a class="dropdown-item" href="house_attendance.html">House</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Loyalty</a>
+
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="senate_loyalty.html">Senate</a>
+                                <a class="dropdown-item" href="house_loyalty.html">House</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--Table container-->
+
+    <div class="container main margin_T_25">
+
+        <div class="row">
+            <div class="col">
+                <h2>Attendance</h2>
+                <p>The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue even if a majority is not present.</p>
+
+                <p>The House uses roll-call votes; a clerk calls out the names of all the senators, each senator stating "aye" or "no" when his or her name is announced. The House reserves roll-call votes for the most formal matters, as a roll-call of all 435 representatives takes quite some time; normally, members vote by electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President may (if present) cast the tiebreaking vote.</p>
+            </div>
+
+            <div class="col">
+                <h2>House at a glance</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Party</th>
+                            <th>Number of Reps</th>
+                            <th>% Voted with Prty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Republican</td>
+                            <td id="rep_guys"></td>
+                            <td id="rep_votes"></td>
+                        </tr>
+                        <tr>
+                            <td>Democrat</td>
+                            <td id="dem_guys"></td>
+                            <td id="dem_votes"></td>
+                        </tr>
+                        <tr>
+                            <td>Independent</td>
+                            <td id="ind_guys"></td>
+                            <td id="ind_votes"></td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td id="total"></td>
+                            <td id="total_votes"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h2>Least Engaged (Bottom 10% Attendance)</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Number of Missed Votes</th>
+                            <th>% Missed</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="least-eng-att">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col">
+                <h2>Most Engaged (Top 10% Attendance)</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Number of Missed Votes</th>
+                            <th>% Missed</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="most-eng-att">
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>&copy; 2018 | All rights reserved</footer>
+
+    <!--    <script src="JS/data_house.js"></script>-->
+    <script src="JS/statistics_attendance.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

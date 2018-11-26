@@ -1,0 +1,82 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+header {
+    background-image: url(../img/democracy.png);
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-color: #EEBC00;
+    background-position: center;
+    height: 250px;
+}
+
+nav {
+    background-color: #08357c;
+}
+
+nav a {
+    color: white;
+}
+
+nav li a {
+    color: white;
+}
+
+
+
+.dropdown-menu{
+    margin-top: 8px;    
+}
+
+.TGIF {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+thead {
+    background-color: #08357c;
+    color: white;
+}
+
+.margin_T_25 {
+    margin-top: 25px;
+}
+
+button {
+    background-color: #08357c;
+    margin-bottom: 15px;
+    color:white;
+    padding: 8px;
+}
+
+#more {display: none;
+}
+
+.email {
+    width: 45px;
+    height: auto;
+    position: absolute;
+    right: 30px;
+    margin-top: 190px;
+}
+
+
+
+td {
+    background-color: #e5e5e5;
+}
+
+footer {
+    background-color: #08357c;
+    color: white;
+    text-align: center;
+    height: 50px;
+    padding-top: 15px;
+}

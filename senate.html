@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Senate</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./CSS/main.css">
+</head>
+
+<body>
+
+    <header>
+        <a href="mailto:info@tgif.net">
+            <img class="email" src="./img/email.ico" alt="email"></a>
+    </header>
+
+ <nav class="navbar navbar-expand-sm">
+        <div class="container">
+            <!-- Brand -->
+            <div class="row">
+                <div class="col-12">
+                    <a class="navbar-brand TGIF" href="#">Transparent Goverment In Fact</a>
+                </div>
+
+                <!-- Links -->
+                <div class="col">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Senate</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Congres 113
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="senate.html">Senate</a>
+                                <a class="dropdown-item" href="house.html">House</a>
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Attendance</a>
+
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="senate_attendance.html">Senate</a>
+                                <a class="dropdown-item" href="house_attendance.html">House</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Loyalty</a>
+
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="senate_loyalty.html">Senate</a>
+                                <a class="dropdown-item" href="house_loyalty.html">House</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!--Table container-->
+
+    <div class="container margin_T_25">
+        <h2>Senators</h2>
+        <p>First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
+
+        <div>
+            <div class="row">
+                <div class="checkbox col">
+                    <label for="Democrates">Democrates</label>
+                    <input type="checkbox" id="myCheck_1" onclick="tableSenate()">
+                    <label for="Republicans">Republicans</label>
+                    <input type="checkbox" id="myCheck_2" onclick="tableSenate()">
+                    <label for="Independent">Independent</label>
+                    <input type="checkbox" id="myCheck_3" onclick="tableSenate()">
+                </div>
+
+                <div class="stateMenu col">
+                    <label for="Select Your State">Select Your State</label>
+                    <select name="SelectYourState" id="selectState">
+                        <option value="all" selected>All States</option>
+                    </select>
+                </div>
+            </div>
+
+
+
+
+
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Party</th>
+                        <th>State</th>
+                        <th>Years in Office</th>
+                        <th>Votes</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tbody">
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+
+
+    <table id="senate-data"></table>
+
+    <script src="./JS/data_senate.js"></script>
+    <!--    <script src="./JS/senate.js"></script>-->
+    <script src="./JS/appetite_for_destruction.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+
+    <footer>&copy; 2018 | All rights reserved</footer>
+
+</body>
+
+</html>
